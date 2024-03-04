@@ -11,4 +11,10 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene("GameScene");
 
     }
+
+    public void QuitButton()
+    {
+        Application.OpenURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        Application.Quit();
+    }
 }
