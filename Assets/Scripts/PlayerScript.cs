@@ -11,14 +11,12 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         Enemy = GameObject.Find("Enemy");
-
-        float output = Mathf.Sqrt(Mathf.Pow(Enemy.transform.position.x - this.gameObject.transform.position.x, 2.0f) + Mathf.Pow(Enemy.transform.position.y - this.gameObject.transform.position.y, 2.0f));
-        print(output);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        float output = Mathf.Sqrt(Mathf.Pow(Enemy.transform.position.x - this.gameObject.transform.position.x, 2.0f) + Mathf.Pow(Enemy.transform.position.y - this.gameObject.transform.position.y, 2.0f));
+        print(output);
     }
 }
