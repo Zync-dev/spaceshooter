@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    float movementSpeed = 1.0f;
+
+    GameObject Enemy;
+
     // Start is called before the first frame update
     void Start()
     {
-        print("Hello World");
+        Enemy = GameObject.Find("Enemy");
+
+        float output = Mathf.Sqrt(Mathf.Pow(Enemy.transform.position.x - this.gameObject.transform.position.x, 2.0f) + Mathf.Pow(Enemy.transform.position.y - this.gameObject.transform.position.y, 2.0f));
+        print(output);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        this.gameObject.transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
     }
 }
