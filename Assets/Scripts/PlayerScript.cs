@@ -38,5 +38,10 @@ public class PlayerScript : MonoBehaviour
             rb.AddForce(transform.right * movementSpeed, ForceMode2D.Force);
         
         }
+        else if (Input.GetKey(KeyCode.Escape))
+        {
+            // do thing
+
+        }
     }
 }
