@@ -19,30 +19,26 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         float output = Mathf.Sqrt(Mathf.Pow(Enemy.transform.position.x - this.gameObject.transform.position.x, 2.0f) + Mathf.Pow(Enemy.transform.position.y - this.gameObject.transform.position.y, 2.0f));
-        print(output);
-        if (Input.GetKey(KeyCode.W))
-        {
-            rb.AddForce(transform.up*movementSpeed,ForceMode2D.Force);
-            
-        }
-        if(Input.GetKey(KeyCode.S)){
-            rb.AddForce(-transform.up * movementSpeed, ForceMode2D.Force);
-            
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.AddForce(-transform.right * movementSpeed, ForceMode2D.Force);
-            
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rb.AddForce(transform.right * movementSpeed, ForceMode2D.Force);
-        
-        }
 
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector2 movement = new Vector2(horizontal, vertical);
+
+        rb.AddForce(movement * movementSpeed, ForceMode2D.Force);
+
+
+
+
+
+        // LUKAS ARBEJDE
         var vel = rb.velocity;
 
-        print(vel);
-        
+        float answer = Mathf.Atan2(vel.x, vel.y) * 57.295779513f;
+
+        GameObject child = this.transform.GetChild(0).gameObject;
+        child.transform.rotation = Quaternion.Euler(Vector3.forward * answer);
+
+        print(answer);
     }
 }
