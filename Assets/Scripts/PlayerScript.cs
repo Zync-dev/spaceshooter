@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
     Rigidbody2D rb;
     GameObject Enemy;
     public float movementSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,20 +25,24 @@ public class PlayerScript : MonoBehaviour
             rb.AddForce(transform.up*movementSpeed,ForceMode2D.Force);
             
         }
-        else if(Input.GetKey(KeyCode.S)){
+        if(Input.GetKey(KeyCode.S)){
             rb.AddForce(-transform.up * movementSpeed, ForceMode2D.Force);
             
         }
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             rb.AddForce(-transform.right * movementSpeed, ForceMode2D.Force);
             
         }
-        else if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             rb.AddForce(transform.right * movementSpeed, ForceMode2D.Force);
         
         }
+
+        var vel = rb.velocity;
+
+        print(vel);
         
     }
 }
