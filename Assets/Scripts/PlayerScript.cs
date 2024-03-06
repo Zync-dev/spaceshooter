@@ -18,8 +18,11 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // UDREGN DISTANCE TIL ENEMY
         float output = Mathf.Sqrt(Mathf.Pow(Enemy.transform.position.x - this.gameObject.transform.position.x, 2.0f) + Mathf.Pow(Enemy.transform.position.y - this.gameObject.transform.position.y, 2.0f));
 
+
+        // MOVEMENT
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -31,10 +34,10 @@ public class PlayerScript : MonoBehaviour
 
 
 
-        // LUKAS ARBEJDE
+        // LUKAS ARBEJDE - PLAYER ROTATION
         var vel = rb.velocity;
 
-        float answer = Mathf.Atan2(vel.x, vel.y) * 57.295779513f;
+        float answer = - Mathf.Atan2(vel.x, vel.y) * 180/Mathf.PI;
 
         GameObject child = this.transform.GetChild(0).gameObject;
         child.transform.rotation = Quaternion.Euler(Vector3.forward * answer);
