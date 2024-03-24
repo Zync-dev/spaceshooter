@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -43,6 +42,9 @@ public class PlayerScript : MonoBehaviour
             // Calculate the rotation of the space ship using tan^-1
             rotation = -Mathf.Atan2(vel.x, vel.y) * 180 / Mathf.PI;
         }
+
+        print(vel.x + " " + vel.y);
+        print(rotation);
 
         // Get the child sprite and set its rotation.
         GameObject child = this.transform.GetChild(0).gameObject;

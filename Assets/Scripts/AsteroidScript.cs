@@ -16,7 +16,7 @@ public class AsteroidScript : MonoBehaviour
         float x = 2f * Mathf.Cos(1.5f * Time.deltaTime);
         float y = 2f * Mathf.Sin(1.5f * Time.deltaTime);
 
-        print(x + " - " + y);
+        //print(x + " - " + y);
 
         this.transform.position += new Vector3(x, y);
     }
